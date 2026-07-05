@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТЮЛЬПАН — Раздача Подарков в Telegram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --accent-pink: #ff2a74;
+            --dark-pink: #b51749;
+            --text-color: #ffffff;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Анимация неонового свечения */
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--accent-pink), 0 0 20px var(--dark-pink); }
+            to { text-shadow: 0 0 20px var(--accent-pink), 0 0 30px var(--accent-pink); }
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-pink);
+            background: linear-gradient(180deg, #1f0510 0%, var(--bg-color) 100%);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-color);
+            animation: glow 1.5s ease-in-out infinite alternate;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8c8c8c;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            color: var(--accent-pink);
+        }
+
+        /* Стильная кнопка */
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent-pink);
+            border: 3px solid var(--accent-pink);
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 42, 116, 0.2);
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-pink);
+            color: var(--bg-color);
+            box-shadow: 0 0 30px var(--accent-pink);
+            transform: translateY(-3px);
+        }
+
+        /* Блок с фишками */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #2a2a2a;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--accent-pink);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-pink);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-pink);
+        }
+
+        .card p {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+
+        /* Цитаты в стиле надписей с картинки 1000130646.jpg */
+        .quotes-container {
+            margin: 80px 0;
+            background: #141414;
+            border-left: 5px solid var(--accent-pink);
+            padding: 30px;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .quote:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-pink);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 2.2rem; }
+            .hero-title { font-size: 1.8rem; }
+            .cta-button { width: 100%; padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ТЮЛЬПАН</div>
+        <div class="subtitle">Мой цвет — закон.</div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h2 class="hero-title">Щедрый правитель вашего <span>Telegram</span></h2>
+            <p style="max-width: 600px; color: #a6a6a6; font-size: 1.1rem;">
+                Он не просто раздает подарки. Он создает хаос щедрости. Подпишись и забери то, что принадлежит тебе по праву.
+            </p>
+            <!-- Ссылку ниже замени на реальную ссылку своего бота или канала -->
+            <a href="https://t.me/YOUR_BOT_USERNAME" target="_blank" class="cta-button">Забрать подарок</a>
+        </section>
+
+        <section class="features">
+            <div class="card">
+                <h3>Тотальная раздача</h3>
+                <p>Подарки получают все. Без исключений, пустых обещаний и скрытых условий.</p>
+            </div>
+            <div class="card">
+                <h3>Уникальный стиль</h3>
+                <p>Цвету так, как могу. Тюльпан диктует свои правила в Telegram-индустрии.</p>
+            </div>
+            <div class="card">
+                <h3>Мгновенный дроп</h3>
+                <p>Жми на кнопку, переходи в бота и забирай свой бонус прямо в мессенджере.</p>
+            </div>
+        </section>
+
+        <section class="quotes-container">
+            <p class="quote">«Цвету, но как могу.»</p>
+            <p class="quote">«Меня не понять, и не надо.»</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ТЮЛЬПАН. Все права защищены. Сделано специально для тебя.</p>
+    </footer>
+
+</body>
+  </html>
+  
